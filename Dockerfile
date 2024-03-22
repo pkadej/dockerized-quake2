@@ -24,7 +24,8 @@ RUN make
 FROM ubuntu:22.04 as q2pro
 
 MAINTAINER Przemyslaw Kadej "przemyslaw@kadej.org"
-RUN useradd -m -s /bin/bash quake2
+RUN groupadd -g 7878 quake2
+RUN useradd -u 7878 -g 7878 -m -s /bin/bash quake2
 COPY --from=builder /opt/q2pro/ /opt/q2pro/
 COPY --from=builder /opt/opentdm/ /opt/q2pro/opentdm/
 ADD dist/ /opt/q2pro/share/q2pro/
@@ -35,6 +36,6 @@ RUN chown -R quake2:quake2 /home/quake2
 
 USER quake2
 EXPOSE 27910
-#CMD bin/q2proded +exec opentdm.cfg +set dedicated 1 +set deathmatch 1
+
 COPY --chown=quake2:quake2 dist/q2proded.sh .
 CMD ["/bin/bash", "q2proded.sh"]

@@ -15,5 +15,5 @@ if [ -d "$INSTALLDIR/$PORT" ]; then
 fi
 
 sudo mkdir -p $INSTALLDIR/$PORT 
-sudo chown 1000:1000 -R $INSTALLDIR
+sudo chown 7878:7878 -R $INSTALLDIR
 docker run -d -v $INSTALLDIR/$PORT:/home/quake2/.q2pro --name q2pro-$PORT -it -p $PORT:27910/udp quake2/dockerized
