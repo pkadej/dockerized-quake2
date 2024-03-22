@@ -17,7 +17,7 @@ if [ ! -d "$OPENTDMDIR" ]; then
 
   cp /opt/q2pro/opentdm/gamex86_64-opentdm-r*.so $OPENTDMDIR/gamex86_64.so
   cp /opt/q2pro/opentdm/README.md $OPENTDMDIR/
-  cp /opt/q2pro/share/q2pro/opentdm.cfg $BASEQ2DIR/
+  cp /opt/q2pro/share/q2pro/opentdm.cfg $OPENTDMDIR/
 fi
 
-/opt/q2pro/bin/q2proded +exec opentdm.cfg +set dedicated 1 +set deathmatch 1
+/opt/q2pro/bin/q2proded +game opentdm +exec opentdm.cfg +set dedicated 1 +set deathmatch 1

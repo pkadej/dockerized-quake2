@@ -36,5 +36,5 @@ RUN chown -R quake2:quake2 /home/quake2
 USER quake2
 EXPOSE 27910
 #CMD bin/q2proded +exec opentdm.cfg +set dedicated 1 +set deathmatch 1
-COPY --chown=quake2:quake2 q2proded.sh .
+COPY --chown=quake2:quake2 dist/q2proded.sh .
 CMD ["/bin/bash", "q2proded.sh"]
